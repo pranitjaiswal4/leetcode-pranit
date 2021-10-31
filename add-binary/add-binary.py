@@ -17,35 +17,18 @@ class Solution:
                     return "1", "0"
                 else:
                     return "0", "1"
-        
-        n = 1
-        lena = len(a)
-        lenb = len(b)
-        
-        if lena >=lenb:
-            n = lena
-        else:
-            n = lenb
-        
+
+        n = max(len(a), len(b))
+        a, b = a.zfill(n), b.zfill(n)
         i = -1
         sm, carry = "", "0"
-        
-        while i >= (n*-1):
-            c, s = "0", "0"
-            
-            if lena >= -i and lenb >= -i:
-                c,s = addBinaryDigits(a[i], b[i], carry)
-            elif lena >= -i:
-                c,s = addBinaryDigits(a[i], "0", carry)
-            elif lenb >= -i:
-                c,s = addBinaryDigits("0", b[i], carry)
-                
-            carry = c
-            sm = s + sm
 
+        while i >= (n*-1):
+            carry, s = addBinaryDigits(a[i], b[i], carry)
+            sm = s + sm
             i -= 1
-        
+
         if carry == "1":
             sm = carry + sm
-            
+
         return sm
