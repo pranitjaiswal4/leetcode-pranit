@@ -7,33 +7,21 @@ class Solution:
             freq[c] = freq.get(c, 0) + 1
 
         counts = list(freq.values())
-        counts.sort(reverse=True)
-        # print(counts, ans)
 
-        i, j = 0, 1
+        visited = set()
 
-        while j < len(counts):
-            # print(i, j)
-
-            if counts[j] == counts[i]:
-                i = j
-                counts[j] -= 1
-                ans += 1
-            elif counts[j] > counts[i]:
-                if counts[i] - 1 > 0:
-                    ans += counts[j] - counts[i] + 1
-                    counts[j] = counts[i] - 1
-                    i = j
-                else:
-                    ans += counts[j]
+        for i in range(len(counts)):
+            if counts[i] not in visited:
+                visited.add(counts[i])
             else:
-                i = j
+                while counts[i] in visited:
+                    if counts[i] > 0:
+                        counts[i] -= 1
+                    else:
+                        break
 
-            j += 1
+                    ans += 1
 
-            # print(counts, ans)
-
-        return ans
-        # print(counts, ans)
+                visited.add(counts[i])
 
         return ans
