@@ -9,7 +9,6 @@ class Solution:
             return True
         
         intervals.sort(key = lambda x : x[1])
-        print(intervals)
         
         for i in range(n-1):
             if intervals[i][1] > intervals[i+1][0]:
