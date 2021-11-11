@@ -5,8 +5,7 @@ class Solution:
         
         for i in range(len(digits) - 1, -1, -1):
             
-            if carry > 0:
-                digits[i] += carry
+            digits[i] += carry
             
             carry = digits[i] // 10
             digits[i] = digits[i] % 10
