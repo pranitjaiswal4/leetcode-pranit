@@ -23,6 +23,15 @@ class Solution {
             result.add(entry.getValue());
         }
         
+        // How to sort if needed (using Comparator):
+        /*
+        Collections.sort(result, new Comparator<List<String>>() {
+            public int compare(List<String> o1, List<String> o2) {
+                return o1.get(0).compareTo(o2.get(0));
+            }
+        });
+        */
+        
         return result;
     }
 }
