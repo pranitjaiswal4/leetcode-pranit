@@ -8,9 +8,9 @@ class Solution:
                 if s[right].isalnum():
                     if s[left].lower() != s[right].lower():
                         return False
-                    else:
-                        left += 1
-                        right -= 1
+                    
+                    left += 1
+                    right -= 1
                 else:
                     right -= 1
             else:
