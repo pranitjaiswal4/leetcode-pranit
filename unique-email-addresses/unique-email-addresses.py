@@ -9,7 +9,6 @@ class Solution:
             
             valid = local + '@' + domain
             return valid
-                    
             
         for email in emails:
             uniqueEmails.add(checkValid(email))
