@@ -5,15 +5,9 @@ class Solution:
         def checkValid(email):
             local, domain = email.split("@")
             
-            left = ''
-            for c in local:
-                if c == '+':
-                    break
-                
-                if c != '.':
-                    left += c
+            local = local.split('+')[0].replace('.', '')
             
-            valid = left + '@' + domain
+            valid = local + '@' + domain
             return valid
                     
             
