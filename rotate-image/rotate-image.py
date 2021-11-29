@@ -5,21 +5,17 @@ class Solution:
         """
         n = len(matrix)
         
-        # Find transpose of matrix        
+        # Find transpose of matrix
         for i in range(n):
             for j in range(i, n):
-                temp = matrix[i][j]
-                matrix[i][j] = matrix[j][i]
-                matrix[j][i] = temp
-                
+                matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+        # print(matrix)
+
         # Swap column values
         for i in range(n):
             j, k = 0, n - 1
-            
+
             while j < k:
-                temp = matrix[i][j]
-                matrix[i][j] = matrix[i][k]
-                matrix[i][k] = temp
-                
+                matrix[i][j], matrix[i][k] = matrix[i][k], matrix[i][j]
                 j += 1
                 k -= 1
