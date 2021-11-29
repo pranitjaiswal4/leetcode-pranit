@@ -31,7 +31,7 @@ class Solution:
                 t[i] = checkJump(i + (nums[i] - jump_no), 0) or checkJump(i, jump_no+1)
                 return t[i]
         
-        t = [-1 for i in range(n+1)]
+        t = [-1 for i in range(n)]
         
         if valid:
             return checkJump(0, 0)
