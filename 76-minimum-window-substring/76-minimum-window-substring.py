@@ -2,10 +2,7 @@ class Solution:
     def minWindow(self, s: str, t: str) -> str:
         m = len(s)
         n = len(t)
-        
-        # s: PPAAAATTTTTTTTBBBCDDEAFG -> A:1, B: -2, C: 0, D: 0
-        # t: ABCDD
-        
+      
         minWinLen = m + 1
         output = ""
 
@@ -44,6 +41,4 @@ class Solution:
             
             j += 1
             
-        
-        # print(freq)
         return output
