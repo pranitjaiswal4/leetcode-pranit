@@ -1,7 +1,6 @@
 class Solution:
     def longestPalindromeSubseq(self, s: str) -> int:
         rev = s[::-1]
-        print(rev)
         m = len(s)
         n = len(rev)
         
