@@ -29,9 +29,6 @@ class Solution:
         for course in inorder:
             if inorder[course] == 0:
                 q.append(course)
-
-        if not q:
-            return []
         
         bfs()
         
