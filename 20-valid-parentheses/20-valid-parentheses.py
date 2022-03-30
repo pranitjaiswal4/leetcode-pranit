@@ -12,7 +12,7 @@ class Solution:
                     top = stack[-1]
                 
                     if s[i] == braces[top]:
-                        stack.pop() if stack else '#'
+                        stack.pop()
                     else:
                         return False
                 else:
