@@ -1,40 +1,19 @@
 class Solution:
-    def validWordAbbreviation(self, word: str, abbr: str) -> bool:
-        a = list()
-
-        i = 0
-        while i < len(abbr):
-            snum = ""
-            num = 0
-
-            if abbr[i].isalpha():
-                a.append(abbr[i])
+    def validWordAbbreviation(self, word, abbr):
+        i = j = 0
+        m, n = len(word), len(abbr)
+        while i < m and j < n:
+            if word[i] == abbr[j]:
                 i += 1
-            else:
-                if abbr[i] == '0':
-                    return False
-
-                k = i
-                while k < len(abbr) and abbr[k].isdigit():
-                    snum += abbr[k]
-                    k += 1
-                
-                num = int(snum)
-
-                if num > len(word):
-                    return False
-
-                for _ in range(num):
-                    a.append("*")
-
-                i += len(snum)
-
-        if len(word) != len(a):
-            return False
-
-        for i in range(len(word)):
-            if a[i] != '*' and word[i] != a[i]:
+                j += 1
+            elif abbr[j] == "0":
                 return False
-        
-        return True
-
+            elif abbr[j].isnumeric():
+                k = j
+                while k < n and abbr[k].isnumeric():
+                    k += 1
+                i += int(abbr[j:k])
+                j = k
+            else:
+                return False
+        return i == m and j == n
