@@ -13,7 +13,6 @@ class Solution:
                     if deleted == 0:
                         sub1 = str[i+1:j+1]
                         sub2 = str[i:j]
-                        print(sub1, sub2)
                         deleted = 1
                     return False
                 
