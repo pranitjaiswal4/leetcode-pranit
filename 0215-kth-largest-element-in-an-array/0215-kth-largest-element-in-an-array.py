@@ -6,6 +6,8 @@ class Solution:
             if len(heap) < k:
                 heapq.heappush(heap, num)
             else:
-                heapq.heappushpop(heap, num)
+                if num > heap[0]:
+                    heapq.heappop(heap)
+                    heapq.heappush(heap, num)
         
         return heap[0]
